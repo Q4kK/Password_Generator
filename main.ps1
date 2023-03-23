@@ -6,10 +6,8 @@ $Special_Characters = ("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "~", "/
     $Full_Alphabet += $Alphabet_Uppercase
     $Full_Alphabet +=$Alphabet_Lowercase
     $Full_Alphabet += $Numeric_Values
-    $Generated_Password += "
-    
-    "
 
+$Pass_Array = @()
 $PW_NUM = Read-Host "Enter the amount of passwords you want to generate"
 
 if ((Read-Host "Do you want special characters? [Y][N]") -eq "Y") {
@@ -21,8 +19,7 @@ for ($c=0; $c -lt $PW_NUM; $c++) {
         $Random = Get-Random -Maximum ($Full_Alphabet.Count)
         $Generated_Password += $Full_Alphabet[$Random]
     }
-    $Generated_Password += "
-    
-    "
+    $Pass_Array += $Generated_Password
+    $Generated_Password = ""
 }
-Write-Output $Generated_Password
+Write-Output $Pass_Array
