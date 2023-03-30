@@ -28,3 +28,5 @@ for c in range(pw_num):
         generated_password += random.choice(full_alphabet)
     print(generated_password)
     generated_password = ""
+
+input("press enter to continue. ")
